@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karkash Enterprises Inc. | Wholesale Distribution</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #1a1a2e;
+      line-height: 1.7;
+      background: #fff;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 6%;
+      background: #fff;
+      border-bottom: 1px solid #e8e8e8;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0d1b4b;
+      letter-spacing: 0.5px;
+    }
+    .logo span {
+      color: #c8993e;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      color: #444;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: #0d1b4b; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0d1b4b 0%, #16337a 100%);
+      color: #fff;
+      padding: 6rem 6%;
+      text-align: center;
+    }
+    .hero p.tag {
+      font-size: 0.82rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c8993e;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1.2rem;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero p.sub {
+      font-size: 1.1rem;
+      color: #c8d4f0;
+      max-width: 580px;
+      margin: 0 auto 2rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #c8993e;
+      color: #fff;
+      padding: 0.85rem 2.2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #b5852e; }
+
+    /* STATS */
+    .stats {
+      background: #f8f9ff;
+      padding: 3rem 6%;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      border-bottom: 1px solid #e8e8e8;
+      flex-wrap: wrap;
+    }
+    .stat-item { text-align: center; }
+    .stat-item .num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0d1b4b;
+    }
+    .stat-item .label {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0.2rem;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 6%;
+    }
+    section.alt { background: #f8f9ff; }
+
+    .section-tag {
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c8993e;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0d1b4b;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    p.body-text {
+      color: #555;
+      font-size: 1rem;
+      max-width: 680px;
+      margin-bottom: 1rem;
+    }
+
+    /* ABOUT GRID */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-grid .about-text {}
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .highlight-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #c8993e;
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 6px 6px 0;
+    }
+    .highlight-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0d1b4b;
+      margin-bottom: 0.3rem;
+    }
+    .highlight-card p {
+      font-size: 0.88rem;
+      color: #666;
+    }
+
+    /* CATEGORIES */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .cat-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .cat-card:hover {
+      box-shadow: 0 4px 20px rgba(13,27,75,0.1);
+      transform: translateY(-2px);
+    }
+    .cat-icon {
+      width: 48px;
+      height: 48px;
+      background: #eef1fa;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.4rem;
+    }
+    .cat-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #0d1b4b;
+      margin-bottom: 0.4rem;
+    }
+    .cat-card p {
+      font-size: 0.82rem;
+      color: #888;
+    }
+
+    /* WHY US */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .why-card {
+      padding: 2rem 1.5rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+    .why-num {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #e8ecf8;
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+    .why-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0d1b4b;
+      margin-bottom: 0.5rem;
+    }
+    .why-card p { font-size: 0.88rem; color: #666; }
+
+    /* CONTACT */
+    .contact-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-inner h2 { margin-bottom: 0.8rem; }
+    .contact-inner p.body-text { margin: 0 auto 2.5rem; }
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .contact-item {
+      text-align: center;
+    }
+    .contact-item .c-label {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c8993e;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .contact-item .c-value {
+      font-size: 1rem;
+      color: #0d1b4b;
+      font-weight: 500;
+    }
+    .contact-item a {
+      color: #0d1b4b;
+      text-decoration: none;
+    }
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      background: #0d1b4b;
+      color: #8892b0;
+      text-align: center;
+      padding: 2rem 6%;
+      font-size: 0.85rem;
+    }
+    footer span { color: #c8993e; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats { gap: 2rem; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Karkash <span>Enterprises</span> Inc.</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#categories">Products</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="tag">Wholesale Distribution &amp; Trading</p>
+    <h1>Your Trusted Wholesale Partner Across North America</h1>
+    <p class="sub">Karkash Enterprises Inc. supplies quality consumer goods directly to retailers, e-commerce sellers, and businesses across Canada and the United States.</p>
+    <a href="#contact" class="btn">Get in Touch</a>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-item">
+      <div class="num">B2B</div>
+      <div class="label">Wholesale Only</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">CA + US</div>
+      <div class="label">Markets Served</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">Direct</div>
+      <div class="label">Brand Sourcing</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">Fast</div>
+      <div class="label">Order Turnaround</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-tag">About Us</p>
+        <h2>A Professional Wholesale Distribution Company</h2>
+        <p class="body-text">Karkash Enterprises Inc. is a registered Canadian corporation based in Burnaby, British Columbia. We operate as a B2B wholesale distributor, sourcing quality products directly from brands and manufacturers and supplying them to businesses across Canada and the United States.</p>
+        <p class="body-text">We work with brands and suppliers looking for reliable, professional distribution partners who understand the North American market.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <h4>Registered Corporation</h4>
+          <p>Provincially incorporated in British Columbia, Canada. Full legal entity with business banking and verifiable credentials.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Direct Brand Sourcing</h4>
+          <p>We purchase directly from manufacturers and authorized brand representatives — no intermediaries.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>North American Reach</h4>
+          <p>We distribute across Canada and the United States, serving retailers, online sellers, and wholesale buyers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories" class="alt">
+    <div style="text-align:center; margin-bottom: 0.5rem;">
+      <p class="section-tag">What We Carry</p>
+      <h2>Product Categories</h2>
+      <p class="body-text" style="margin: 0 auto;">We source and distribute across a broad range of consumer product categories. Contact us for current inventory and pricing.</p>
+    </div>
+    <div class="categories-grid">
+      <div class="cat-card">
+        <div class="cat-icon">🏠</div>
+        <h4>Home &amp; Kitchen</h4>
+        <p>Household essentials, cookware, storage, and organisation products</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon">💊</div>
+        <h4>Health &amp; Wellness</h4>
+        <p>Personal care, supplements, and wellness essentials</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon">🧴</div>
+        <h4>Beauty &amp; Personal Care</h4>
+        <p>Skincare, hair care, and grooming products</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon">🐾</div>
+        <h4>Pet Supplies</h4>
+        <p>Food, accessories, and care products for pets</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon">🏋️</div>
+        <h4>Sports &amp; Outdoors</h4>
+        <p>Fitness equipment, outdoor gear, and sporting goods</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon">📦</div>
+        <h4>General Consumer Goods</h4>
+        <p>Everyday essentials across a wide range of product lines</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <p class="section-tag" style="text-align:center;">Why Work With Us</p>
+    <h2 style="text-align:center; margin-bottom: 0.5rem;">Built for Serious B2B Buyers</h2>
+    <p class="body-text" style="text-align:center; margin: 0 auto 0;">We operate with the professionalism and reliability that brand owners and wholesale buyers expect.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h4>Competitive Wholesale Pricing</h4>
+        <p>We source directly, which means better pricing passed on to our distribution partners.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <h4>Verified Business Entity</h4>
+        <p>Registered corporation with proper business banking, documentation, and legal standing.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <h4>Reliable Order Fulfilment</h4>
+        <p>We maintain consistent inventory management and clear communication throughout every order.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h4>Long-Term Partnerships</h4>
+        <p>We are not a one-time buyer. We build lasting supplier relationships based on mutual growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="alt">
+    <div class="contact-inner">
+      <p class="section-tag">Contact</p>
+      <h2>Get in Touch</h2>
+      <p class="body-text">Whether you are a brand looking for a distribution partner or a buyer interested in our product catalogue, we would love to hear from you.</p>
+      <a href="mailto:purchasing@karkashenterprises.com" class="btn">purchasing@karkashenterprises.com</a>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="c-label">Location</div>
+          <div class="c-value">Burnaby, British Columbia, Canada</div>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">Business Type</div>
+          <div class="c-value">B2B Wholesale Only</div>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">Markets</div>
+          <div class="c-value">Canada &amp; United States</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 <span>Karkash Enterprises Inc.</span> &mdash; Burnaby, BC, Canada &mdash; All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
